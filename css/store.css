@@ -2288,3 +2288,101 @@ dialog::backdrop {
 #checkout-form h2 {
   scroll-margin-top: 28px;
 }
+/* Apparel selection and unconfirmed product information. */
+.size-option {
+  position: relative;
+  margin-right: 8px;
+}
+.size-chip {
+  display: block;
+  border: 1px solid var(--line);
+  padding: 9px 15px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.size-option input:checked + .size-chip {
+  border-color: var(--accent);
+  color: var(--text);
+  background: #252c1d;
+}
+.size-option input:focus-visible + .size-chip {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.product-meta > span {
+  white-space: normal;
+  font-size: 9px;
+}
+.detail-price {
+  font-size: 21px;
+}
+.detail-price small {
+  font-size: 8px;
+}
+.purchase-row .button #add-total {
+  font-size: 9px;
+}
+.summary-item > span {
+  max-width: 90px;
+  text-align: right;
+}
+.hero-product .muted {
+  display: block;
+  margin-left: 0;
+  margin-top: 4px;
+}
+.search-result > span:last-child {
+  white-space: normal;
+  max-width: 100px;
+  text-align: right;
+}
+.bag-item-right > span {
+  max-width: 95px;
+  text-align: right;
+}
+.catalog-controls .filter-row {
+  flex: 1;
+}
+.size-option input {
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  cursor: pointer;
+}
+.hero-copy > p {
+  max-width: 350px;
+}
+@media (max-width: 700px) {
+  .product-meta > span {
+    font-size: 9px;
+  }
+  .purchase-row .button #add-total {
+    max-width: 67px;
+    white-space: normal;
+    font-size: 8px;
+    text-align: right;
+    line-height: 1.3;
+  }
+  .hero-product > span:first-child {
+    max-width: 80%;
+  }
+  .hero-product .muted {
+    font-size: 8px;
+  }
+  .summary-costs > .total {
+    font-size: 14px;
+  }
+  .summary-costs > .total > strong:last-child {
+    text-align: right;
+    max-width: 65%;
+  }
+  .hero h1 {
+    font-size: clamp(58px, 18vw, 88px);
+  }
+  .detail-copy h1 {
+    font-size: 33px;
+  }
+  .search-result > span:last-child {
+    max-width: 77px;
+  }
+}

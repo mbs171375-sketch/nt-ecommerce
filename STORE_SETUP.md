@@ -10,7 +10,7 @@ From the repository root:
 python3 -m http.server 8000 --bind 0.0.0.0
 ```
 
-The entry point is `index.html`. The collection, product details and checkout are `products.html`, `product.html?id=h01`, and `checkout.html`. Use any static host for the storefront; a server-side checkout endpoint is required when accepting payments.
+The entry point is `index.html`. The collection, product details and checkout are `products.html`, `product.html?id=sp5der-hoodie`, and `checkout.html`. Use any static host for the storefront; a server-side checkout endpoint is required when accepting payments.
 
 ## Public hosting
 
@@ -23,7 +23,7 @@ The `.nojekyll` file keeps the storefront as static files without a Jekyll build
 
 Edit **`js/store-config.js`**. Each product has a `name`, `image`, `price`, category, description, details and finishes. Put your photos in **`assets/products/`** and set each `image` to its relative path. Use square photos (ideally 1200 × 1200) with breathing room around the object. Product names and images are reused automatically throughout the collection, product pages, search, bag and checkout. The first product is featured in the hero; the second illustrates the approach section.
 
-Prices are integer cents: `18900` means AUD $189.00. The six products, descriptions and prices are samples. Change them to match your actual inventory before launch. Keep existing product IDs stable so saved bags remain valid. Add or remove product entries as needed, keeping at least two for the home layout. Finish names describe the selection; upload accurate images of your real products before selling.
+Prices are integer cents: `18900` means AUD $189.00. The catalogue now contains nine clothing listings from the supplied inventory. Prices are `null` until supplied; the storefront displays “To be confirmed”, never a zero price. Photos are explicitly labelled illustrations until matched product photos can be obtained. Confirm descriptions, available sizes and quantities before launch. Keep existing product IDs stable so saved bags remain valid. Add or remove product entries as needed, keeping at least two for the home layout. The `variants` field contains available sizes. Until supplied, it contains only “To be confirmed”. Upload accurate photos of the exact garment/style/colour and set `imagePending` to `false` after doing so. Do not invent sizes or availability.
 
 At the top of the configuration you can also change the brand, currency and shipping prices. The delivery form currently supports Australia; expand its fields if you intend to ship internationally. The store uses AUD, a $9 delivery fee and complimentary delivery from $150 as editable defaults.
 
@@ -31,7 +31,7 @@ At the top of the configuration you can also change the brand, currency and ship
 
 - Responsive homepage, category filters, full collection and price sorting.
 - Product search, deep links and invalid-product handling.
-- Finish selection and quantities from 1 to 99.
+- Size selection and quantities from 1 to 99.
 - Persistent bag, quantity editing, removal, totals and delivery calculation.
 - Buy now shortcut, with existing bag items retained.
 - Guest checkout: validated contact information → delivery → payment.
@@ -50,7 +50,7 @@ The frontend sends a JSON POST:
 
 ```json
 {
-  "items": [{ "id": "h01", "variant": "Graphite", "quantity": 2 }],
+  "items": [{ "id": "sp5der-hoodie", "variant": "M", "quantity": 2 }],
   "customer": {
     "firstName": "…",
     "lastName": "…",
@@ -84,3 +84,11 @@ node scripts/smoke-test.cjs
 The browser smoke test requires Playwright and Chromium (already present in this environment). Override `STORE_TEST_URL` or `CHROMIUM_PATH` for another environment. It exercises desktop and mobile layouts, filtering, sorting, searching, product selection, saved bags, checkout validation, privacy, empty states and a mocked future Stripe endpoint. It never submits an actual order or payment.
 
 The original Sass and legacy styles remain in the repository but are not used by the new storefront. Edit `css/store.css` for the current design.
+
+## Current clothing and photo status
+
+The range is Sp5der pink/black hoodie, BAPE Big Ape Head T-shirt, Neovision hoodie, blank hoodie, Ralph Lauren polo bundle, The North Face puffer jacket and puffer vest, Essentials hoodie and Essentials T-shirt. The North Face jacket/vest split and Sp5der pink/black interpretation are provisional. Bundle contents are not yet known.
+
+All current garment images are locally drawn, explicitly labelled placeholders, not photographs of the stock. Brand/model-specific photography is still pending because the cloud network currently denies access to the official brand sites and web search. Required domain additions have been saved in the environment draft for review. Do not describe photos as sourced or matched until the actual sources have been inspected. The requested BAPE design is Big Ape Head; the requested hoodie colourway is interpreted as pink/black. Exact style matching is still needed.
+
+When sourcing photos, prefer clear front-on product images on a neutral background, with a consistent crop. Match the exact model, graphic and colour. Record the official source URL with each downloaded image. Do not substitute an arbitrary garment from the same brand.

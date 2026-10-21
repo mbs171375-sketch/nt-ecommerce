@@ -26,7 +26,7 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       for (const path of [
         "index.html",
         "products.html",
-        "product.html?id=h01",
+        "product.html?id=sp5der-hoodie",
         "checkout.html",
       ]) {
         await page.goto(`${base}/${path}`, { waitUntil: "networkidle" });
@@ -40,18 +40,18 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
         checks++;
       }
       await page.goto(`${base}/products.html`);
-      await page.locator('[data-category="Sound"]').click();
-      assert.equal(await page.locator(".product-card").count(), 2);
+      await page.locator('[data-category="Hoodies"]').click();
+      assert.equal(await page.locator(".product-card").count(), 4);
       checks++;
-      await page.locator('[data-category="All objects"]').click();
-      await page.locator("#sort").selectOption("low");
+      await page.locator('[data-category="All clothing"]').click();
+      await page.locator("#sort").selectOption("name");
       assert.match(
         await page.locator(".product-card").first().textContent(),
-        /Everyday bottle/,
+        /BAPE Big Ape Head/,
       );
       checks++;
       await page.locator("[data-search]").click();
-      await page.locator("#search-input").fill("lamp");
+      await page.locator("#search-input").fill("BAPE");
       assert.equal(await page.locator(".search-result").count(), 1);
       checks++;
       await page.locator(".search-result").click();
@@ -65,14 +65,22 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       checks++;
       await page.locator("#product-quantity").fill("2");
       await page.locator("#product-quantity").dispatchEvent("change");
-      await page.locator(".variant").filter({ hasText: "Stone" }).click();
+      await page
+        .locator(".variant")
+        .filter({ hasText: "To be confirmed" })
+        .click();
       assert.equal(
-        await page.locator('input[name="variant"][value="Stone"]').isChecked(),
+        await page
+          .locator('input[name="variant"][value="To be confirmed"]')
+          .isChecked(),
         true,
       );
       checks++;
       await page.locator("#add-bag").click();
-      assert.match(await page.locator("#bag-content").textContent(), /Stone/);
+      assert.match(
+        await page.locator("#bag-content").textContent(),
+        /To be confirmed/,
+      );
       checks++;
       await page.reload();
       await page.locator("[data-bag]").click();
@@ -96,6 +104,11 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       await page.locator('[data-step="2"] button[type="submit"]').click();
       assert.equal(await page.locator('[data-step="3"]').isVisible(), true);
       assert.equal(await page.locator("#pay-button").isDisabled(), true);
+      assert.match(
+        await page.locator(".summary-costs .total").textContent(),
+        /To be confirmed/,
+      );
+      checks++;
       assert.match(
         await page.locator("#delivery-review").textContent(),
         /Test Customer/,
@@ -123,7 +136,7 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       await page.goto(`${base}/product.html?id=not-real`);
       assert.match(
         await page.locator("main").textContent(),
-        /Object not found/,
+        /Product not found/,
       );
       checks++;
       assert.deepEqual(errors, []);
@@ -136,7 +149,7 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
     }
     // Verify the future Stripe handoff contract without sending customer data to a real service.
     const page = await browser.newPage();
-    await page.goto(`${base}/product.html?id=b01`);
+    await page.goto(`${base}/product.html?id=blank-hoodie`);
     await page.locator("#buy-now").click();
     await page.evaluate(() => {
       window.STORE.checkoutEndpoint = "/api/checkout";
@@ -150,6 +163,8 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
         },
         set(v) {
           v.checkoutEndpoint = "/api/checkout";
+          // Synthetic price only for the mocked-payment test; never saved in the catalogue.
+          v.products.forEach((p) => (p.price = 4900));
           this._store = v;
         },
       });
@@ -179,7 +194,7 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
         .querySelector("#payment-status")
         .textContent.includes("temporarily unavailable"),
     );
-    assert.equal(payload.items[0].id, "b01");
+    assert.equal(payload.items[0].id, "blank-hoodie");
     assert.equal("price" in payload.items[0], false);
     assert.equal(await page.locator("#pay-button").isEnabled(), true);
     checks += 3;
