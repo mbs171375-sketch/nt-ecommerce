@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#656766" />
+      <stop offset=".28" stop-color="#292c2b" />
+      <stop offset=".65" stop-color="#111413" />
+      <stop offset="1" stop-color="#444745" />
+    </linearGradient>
+    <linearGradient id="soft">
+      <stop stop-color="#101211" />
+      <stop offset=".5" stop-color="#383b39" />
+      <stop offset="1" stop-color="#121413" />
+    </linearGradient>
+    <linearGradient id="edge" x1="0" x2="1" y2="1">
+      <stop stop-color="#a0a29d" />
+      <stop offset=".4" stop-color="#444743" />
+      <stop offset="1" stop-color="#121512" />
+    </linearGradient>
+    <radialGradient id="light">
+      <stop stop-color="#444840" stop-opacity=".28" />
+      <stop offset="1" stop-color="#191b18" stop-opacity="0" />
+    </radialGradient>
+    <filter id="shadow"><feGaussianBlur stdDeviation="18" /></filter>
+    <pattern id="mesh" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#292c29" />
+      <circle cx="3" cy="3" r="1.2" fill="#090b09" />
+    </pattern>
+  </defs>
+  <ellipse
+    cx="400"
+    cy="695"
+    rx="200"
+    ry="24"
+    fill="#000"
+    opacity=".6"
+    filter="url(#shadow)"
+  />
+  <path
+    d="M335 204h130v72c0 20 49 45 49 89v265c0 69-228 69-228 0V365c0-44 49-69 49-89z"
+    fill="url(#metal)"
+    stroke="#55594e"
+    stroke-width="2"
+  />
+  <rect
+    x="330"
+    y="150"
+    width="140"
+    height="87"
+    rx="20"
+    fill="url(#soft)"
+    stroke="#55594e"
+  />
+  <path
+    d="M348 163v60m13-60v60m13-60v60m13-60v60m13-60v60m13-60v60m13-60v60m13-60v60m13-60v60"
+    stroke="#55594e"
+    opacity=".5"
+  />
+  <text
+    x="400"
+    y="531"
+    fill="#d4d6c6"
+    text-anchor="middle"
+    font-family="sans-serif"
+    font-size="15"
+    letter-spacing="6"
+  >
+    FORME
+  </text>
+  <path d="M312 369v236" stroke="#747769" stroke-width="3" opacity=".5" />
+</svg>

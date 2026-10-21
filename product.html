@@ -1,280 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product</title>
-  <link rel="stylesheet" href="src/bootstrap.min.css">
-  <link rel="stylesheet" href="css/product.css">
-</head>
-
-<body>
-  <main class="site-content bg-white shadow-sm py-4 px-lg-2">
-    <!-- BREADCRUMB -->
-
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Homepage</a></li>
-        <li class="breadcrumb-item"><a href="#">Fruit and vegetables</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Carrots from Tomissy Farm</li>
-      </ol>
-    </nav>
-
-
-    <!-- PRODUCT -->
-
-    <section class="product d-flex py-2 mb-5">
-      <!-- LEFT -->
-
-      <div class="product__side-left mr-5">
-        <div class="product__cover-wrapper position-relative">
-          <img class="product__cover d-block rounded-lg mb-4" src="./img/bg-product.jpg" width="569" height="437"
-            alt="Product photo">
-
-          <div class="product__badges d-flex">
-            <span class="badge badge-pill badge-success mr-2">- 36 %</span>
-            <span class="badge badge-pill badge-success">Free shipping</span>
-          </div>
-        </div>
-
-        <img class="product__cover d-block rounded-lg mb-4" src="./img/bg-product.jpg" width="569" height="437"
-          alt="Product photo">
-        <img class="product__cover d-block rounded-lg" src="./img/bg-product.jpg" width="569" height="437"
-          alt="Product photo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#11120f" />
+    <meta
+      name="description"
+      content="Considered objects for a better everyday. Explore the FORME collection of sound, living and everyday essentials."
+    />
+    <title>FORME — Less, but better.</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/store.css" />
+    <script src="js/store-config.js" defer></script>
+    <script src="js/store.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="announcement">
+      A considered collection. A better everyday.
+      <span
+        >Discover your next favourite
+        <svg
+          class="arrow-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <path d="M5 19 19 5M5 5h14v14" /></svg
+      ></span>
+    </div>
+    <header class="header">
+      <a class="wordmark" href="index.html" aria-label="FORME home"
+        >FORME<span>®</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="products.html"
+          >Shop all
+          <span
+            ><svg
+              class="arrow-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" /></svg></span></a
+        ><a href="products.html?category=Living">Living</a
+        ><a href="index.html#philosophy">Our approach</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" data-search aria-label="Search products">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="10.5" cy="10.5" r="6.5" />
+            <path d="m16 16 5 5" />
+          </svg></button
+        ><button class="bag-button" data-bag>
+          Bag <span data-bag-count>0</span>
+        </button>
       </div>
-
-
-      <!-- RIGHT -->
-
-      <div class="product__side-right">
-        <h1 class="mb-2">Carrots from Tomissy Farm</h1>
-        <div class="d-flex mb-4">
-          <img class="mr-2" src="./img/icon-star-4.svg" width="108" height="20" alt="Star 4">
-          <a class="text-black-50" href="#">(1 customer review)</a>
+    </header>
+    <main id="main"></main>
+    <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <a class="wordmark" href="index.html">FORME<span>®</span></a>
+          <p>Good things. Less noise.</p>
         </div>
-
-        <p class="mb-4">Carrots from Tomissy Farm are one of the best on the market. Tomisso and his family are giving a
-          full love to
-          his Bio products. Tomisso’s carrots are growing on the fields naturally.</p>
-
-        <div class="product__info-wrapper mb-4 d-flex flex-wrap">
-          <dl class="mr-4 mb-xl-0 mb-4 mr-xl-auto list-unstyled">
-            <div class="mb-2 d-flex">
-              <dt class="product__info-term text-black-50 font-weight-normal mr-4">SKU:</dt>
-              <dd class="mb-0">76645</dd>
-            </div>
-            <div class="mb-2 d-flex">
-              <dt class="product__info-term text-black-50 font-weight-normal mr-4">Category:</dt>
-              <dd class="mb-0">Vegetables</dd>
-            </div>
-            <div class="mb-2 d-flex">
-              <dt class="product__info-term text-black-50 font-weight-normal mr-4">SKU:</dt>
-              <dd class="mb-0 text-success" style="text-decoration: underline;">In Stock</dd>
-            </div>
-            <div class="mb-2 d-flex">
-              <dt class="product__info-term text-black-50 font-weight-normal mr-4">Farm:</dt>
-              <dd class="mb-0">Grocery Tarm Fields</dd>
-            </div>
-          </dl>
-
-          <dl class="product__info-last mb-0 list-unstyled">
-            <div class="mb-2 d-flex">
-              <dt class="product__info-term text-black-50 font-weight-normal mr-4">Freshness:</dt>
-              <dd class="mb-0">1 days old</dd>
-            </div>
-            <div class="mb-2 d-flex">
-              <dt class="product__info-term text-black-50 font-weight-normal mr-4">Buy by:</dt>
-              <dd class="mb-0">pcs, kgs, box, pack</dd>
-            </div>
-            <div class="mb-2 d-flex">
-              <dt class="product__info-term text-black-50 font-weight-normal mr-4">Delivery:</dt>
-              <dd class="mb-0">in 2 days</dd>
-            </div>
-            <div class="mb-2 d-flex">
-              <dt class="product__info-term text-black-50 font-weight-normal mr-4">Delivery area:</dt>
-              <dd class="mb-0">Czech republic</dd>
-            </div>
-          </dl>
+        <div>
+          <span class="eyebrow">Explore</span
+          ><a href="products.html">The collection</a
+          ><a href="index.html#philosophy">Our approach</a
+          ><button data-info="delivery">Delivery & returns</button>
         </div>
-
-        <div class="product__actions d-flex align-items-center flex-wrap border p-3 rounded-lg mb-3">
-          <div class="product__actions-price mr-auto">
-            <p class="h3 text-success m-0">36.23 USD</p>
-            <s class="text-black-50 small">48.56 USD</s>
-          </div>
-
-          <div class="input-group mr-3 w-auto">
-            <div class="input-group-prepend align-items-center">
-              <label class="input-group-text" for="inputGroupSelect01">1</label>
-            </div>
-            <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Pcs</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-
-          <button class="product__actions-btn btn btn-success font-weight-bold text-el" type="button">+ Add to
-            cart</button>
-        </div>
-
-        <div class="product__actions-bottom d-flex flex-wrap mb-5">
-          <button
-            class="product__actions-bottom-btn product__actions-bottom-btn--wishlist btn btn-sm d-inline-flex align-items-center mr-2"
-            type="button">Add to my wish list</button>
-          <button
-            class="product__actions-bottom-btn product__actions-bottom-btn--compare btn btn-sm d-inline-flex align-items-center"
-            type="button">Compare</button>
-        </div>
-
-        <div class="product__tabs">
-          <ul class="nav nav-tabs flex-nowrap mb-4">
-            <li class="nav-item flex-shrink-0">
-              <a class="nav-link active" href="#">Description</a>
-            </li>
-            <li class="nav-item flex-shrink-0">
-              <a class="nav-link" href="#">Reviews <span class="badge badge-light">18</span></a>
-            </li>
-            <li class="nav-item flex-shrink-0">
-              <a class="nav-link" href="#">Questions <span class="badge badge-light">4</span></a>
-            </li>
-          </ul>
-
-          <div>
-            <h3 class="h5">Origins</h3>
-            <p class="mb-4">We work hard to ensure that the fruit and vegetables we sell are fresh and high in quality.
-              If we don’t
-              grow them ourselves, we source them from carefully chosen suppliers, preferring to buy locally whenever
-              possible.
-            </p>
-            <h3 class="h5">How to cook</h3>
-            <p class="mb-4">From roasts, salads and soups to casseroles and cakes, Carrots will lend sweetness, texture
-              and colour to
-              an enormous number of recipes.</p>
-
-            <h3 class="h5 mb-4">Full of Vitamins!</h3>
-
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Vitamins</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">% DV</th>
-                </tr>
-              </thead>
-              <tbody class="text-black-50">
-                <tr>
-                  <td>Vitamin A equiv.</td>
-                  <td>735 μg</td>
-                  <td>104 %</td>
-                </tr>
-                <tr>
-                  <td>Thiamine (B1)</td>
-                  <td>0.066 mg</td>
-                  <td>6 %</td>
-                </tr>
-                <tr>
-                  <td>Niacin (B3)</td>
-                  <td>0.983 mg</td>
-                  <td>7 %</td>
-                </tr>
-                <tr>
-                  <td>Vitamin A equiv.</td>
-                  <td>735 μg</td>
-                  <td>104 %</td>
-                </tr>
-                <tr>
-                  <td>Thiamine (B1)</td>
-                  <td>0.066 mg</td>
-                  <td>6 %</td>
-                </tr>
-                <tr>
-                  <td>Niacin (B3)</td>
-                  <td>0.983 mg</td>
-                  <td>7 %</td>
-                </tr>
-                <tr>
-                  <td>Vitamin A equiv.</td>
-                  <td>735 μg</td>
-                  <td>104 %</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div>
+          <span class="eyebrow">A little more clarity</span>
+          <p>Thoughtful objects.<br />A simpler way to shop.</p>
+          <button data-info="help">
+            Have a question?
+            <svg
+              class="arrow-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 19 19 5M5 5h14v14" />
+            </svg>
+          </button>
         </div>
       </div>
-    </section>
-
-    <!-- PRODUCTS -->
-
-    <section class="products">
-      <header class="products__header d-flex justify-content-between align-items-center mb-3">
-        <h2 class="h5 mb-0">Related products</h2>
-        <a class="products__header-link btn font-weight-bold d-inline-flex align-items-center text-left" href="#">More
-          products</a>
-      </header>
-
-      <ul class="products__list d-flex align-items-start flex-wrap list-unstyled">
-        <li class="products__item p-3 bg-white border rounded-lg">
-          <img class="products__item-cover d-block mb-3 w-100 rounded-lg" src="./img/bg-product.jpg" width="236"
-            height="180" alt="Product photo">
-
-          <div>
-            <h3 class="h5 mb-1">Product Title</h3>
-            <p>Space for a small product description</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <p class="h4 mb-0">3.26 USD</p>
-              <a class="btn btn-success font-weight-bold" href="./product.html">Buy now</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="products__item p-3 bg-white border rounded-lg">
-          <img class="products__item-cover d-block mb-3 w-100 rounded-lg" src="./img/bg-product.jpg" width="236"
-            height="180" alt="Product photo">
-
-          <div>
-            <h3 class="h5 mb-1">Product Title</h3>
-            <p>Space for a small product description</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <p class="h4 mb-0">3.26 USD</p>
-              <a class="btn btn-success font-weight-bold" href="./product.html">Buy now</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="products__item p-3 bg-white border rounded-lg">
-          <img class="products__item-cover d-block mb-3 w-100 rounded-lg" src="./img/bg-product.jpg" width="236"
-            height="180" alt="Product photo">
-
-          <div>
-            <h3 class="h5 mb-1">Product Title</h3>
-            <p>Space for a small product description</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <p class="h4 mb-0">3.26 USD</p>
-              <a class="btn btn-success font-weight-bold" href="./product.html">Buy now</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="products__item p-3 bg-white border rounded-lg">
-          <img class="products__item-cover d-block mb-3 w-100 rounded-lg" src="./img/bg-product.jpg" width="236"
-            height="180" alt="Product photo">
-
-          <div>
-            <h3 class="h5 mb-1">Product Title</h3>
-            <p>Space for a small product description</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <p class="h4 mb-0">3.26 USD</p>
-              <a class="btn btn-success font-weight-bold" href="./product.html">Buy now</a>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </section>
-  </main>
-</body>
-
+      <div class="footer-bottom">
+        <span>© <span data-year></span> FORME. A considered collection.</span
+        ><span>Designed for the everyday.</span
+        ><button data-info="privacy">Privacy</button>
+      </div>
+    </footer>
+    <dialog id="bag-dialog" class="drawer">
+      <div class="dialog-head">
+        <h2>Your bag <span data-bag-count>0</span></h2>
+        <button class="close-button" data-close aria-label="Close bag">
+          ✕
+        </button>
+      </div>
+      <div id="bag-content"></div>
+    </dialog>
+    <dialog id="search-dialog" class="search-dialog">
+      <div class="dialog-head">
+        <h2>Find your next favourite.</h2>
+        <button class="close-button" data-close aria-label="Close search">
+          ✕
+        </button>
+      </div>
+      <label class="search-field"
+        ><span class="sr-only">Search products</span
+        ><input
+          id="search-input"
+          type="search"
+          placeholder="Try “lamp” or “sound”…"
+          autocomplete="off"
+      /></label>
+      <div id="search-results"></div>
+    </dialog>
+    <dialog id="info-dialog" class="info-dialog">
+      <div class="dialog-head">
+        <h2 id="info-title"></h2>
+        <button class="close-button" data-close aria-label="Close information">
+          ✕
+        </button>
+      </div>
+      <div id="info-body"></div>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite"></div>
+  </body>
 </html>

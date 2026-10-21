@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#656766" />
+      <stop offset=".28" stop-color="#292c2b" />
+      <stop offset=".65" stop-color="#111413" />
+      <stop offset="1" stop-color="#444745" />
+    </linearGradient>
+    <linearGradient id="soft">
+      <stop stop-color="#101211" />
+      <stop offset=".5" stop-color="#383b39" />
+      <stop offset="1" stop-color="#121413" />
+    </linearGradient>
+    <linearGradient id="edge" x1="0" x2="1" y2="1">
+      <stop stop-color="#a0a29d" />
+      <stop offset=".4" stop-color="#444743" />
+      <stop offset="1" stop-color="#121512" />
+    </linearGradient>
+    <radialGradient id="light">
+      <stop stop-color="#444840" stop-opacity=".28" />
+      <stop offset="1" stop-color="#191b18" stop-opacity="0" />
+    </radialGradient>
+    <filter id="shadow"><feGaussianBlur stdDeviation="18" /></filter>
+    <pattern id="mesh" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#292c29" />
+      <circle cx="3" cy="3" r="1.2" fill="#090b09" />
+    </pattern>
+  </defs>
+  <ellipse
+    cx="400"
+    cy="695"
+    rx="200"
+    ry="24"
+    fill="#000"
+    opacity=".6"
+    filter="url(#shadow)"
+  />
+  <path
+    d="m281 471-41 220m279-220 41 220m-265-230 43 222m160-222-36 222"
+    stroke="url(#edge)"
+    stroke-width="18"
+  />
+  <path
+    d="M267 222q133-80 266 0l-12 224H279z"
+    fill="url(#metal)"
+    stroke="#616454"
+    stroke-width="2"
+  />
+  <path
+    d="M279 446q121-36 242 0l39 53q-160 62-320 0z"
+    fill="url(#soft)"
+    stroke="#55594b"
+    stroke-width="2"
+  />
+  <path
+    d="M289 239q111-60 222 0"
+    fill="none"
+    stroke="#777966"
+    opacity=".4"
+    stroke-width="3"
+  />
+</svg>
