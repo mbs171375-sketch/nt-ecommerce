@@ -44,7 +44,17 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       checks++;
       assert.match(
         await page.locator("h1").textContent(),
-        /Start yourresellingjourney/,
+        /Start your\s*reselling journey/,
+      );
+      checks++;
+      assert.equal(await page.locator(".reseller-intro img").count(), 0);
+      checks++;
+      assert.equal(
+        await page
+          .locator("#home-grid .product-card")
+          .first()
+          .getAttribute("href"),
+        "product.html?id=bape-tee",
       );
       checks++;
       const theme = await page.evaluate(() =>
@@ -72,12 +82,12 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       await page.locator(".search-result").click();
       assert.match(
         await page.locator(".detail-price").textContent(),
-        /USD\s*15\.00/,
+        /USD\s*10\.50/,
       );
       checks++;
       assert.match(
         await page.locator(".detail-price").textContent(),
-        /AUD\s*21\.43/,
+        /AUD\s*15\.00/,
       );
       checks++;
       assert.deepEqual(
@@ -130,7 +140,7 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       assert.equal(await page.locator("#pay-button").isDisabled(), true);
       assert.match(
         await page.locator(".summary-costs .total").textContent(),
-        /USD\s*51\.30/,
+        /USD\s*37\.80/,
       );
       checks++;
       assert.match(
@@ -166,20 +176,20 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       await page.goto(`${base}/product.html?id=ralph-lauren-bundle`);
       assert.match(
         await page.locator(".detail-description").textContent(),
-        /3 Ralph Lauren T-shirts for USD 40/,
+        /3 Ralph Lauren T-shirts for AUD 40/,
       );
       checks++;
       await page.locator("#quantity-plus").click();
       assert.match(
         await page.locator("#add-total").textContent(),
-        /USD\s*80\.00/,
+        /USD\s*56\.00/,
       );
       checks++;
       await page.goto(`${base}/product.html?id=essentials-hoodie`);
       await page.locator("#buy-now").click();
       assert.match(
         await page.locator(".summary-costs .total").textContent(),
-        /Price coming soon/,
+        /USD\s*27\.30/,
       );
       checks++;
       assert.deepEqual(errors, []);

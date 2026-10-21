@@ -21,11 +21,11 @@ The `.nojekyll` file keeps the storefront as static files without a Jekyll build
 
 ## Your product information
 
-Edit **`js/store-config.js`**. Each product has a `name`, `image`, `price`, category, description, details and finishes. Put your photos in **`assets/products/`** and set each `image` to its relative path. Use square photos (ideally 1200 × 1200) with breathing room around the object. Product names and images are reused automatically throughout the collection, product pages, search, bag and checkout. All ten products appear on the home collection. The first product is featured in the hero; the second illustrates the approach section.
+Edit **`js/store-config.js`**. Each product has a `name`, `image`, `price`, category, description, details and finishes. Put your photos in **`assets/products/`** and set each `image` to its relative path. Use square photos (ideally 1200 × 1200) with breathing room around the object. Product names and images are reused automatically throughout the collection, product pages, search, bag and checkout. All ten products appear on the home collection. The opening is a compact, image-free editorial header, followed by all ten products. The Sp5der hoodie appears lower in the collection rather than as an oversized opening feature.
 
-Prices are integer **USD cents**: `1500` means USD 15.00. Eight prices have been supplied. The Essentials hoodie and T-shirt remain `null` and display “Price coming soon”; an unpriced bag cannot proceed to live payment. Every product has Small, Medium, Large and XL options, as requested. `imagePending` identifies illustrated placeholders; `imageReference` identifies online photos whose exact match to the stock is not yet confirmed. The `variants` field defines available size options; confirm stock counts separately before launch. Keep IDs stable so saved bags remain valid.
+All ten source prices are in AUD, including Essentials T-shirt AUD 15 and hoodie AUD 30. `audPrice` stores the exact source amount in AUD cents; `price` stores the converted USD amount rounded to cents. USD is the primary display and future checkout currency. Original AUD prices remain visible alongside it. An unpriced bag still cannot proceed to live payment. Every product has Small, Medium, Large and XL options, as requested. `imagePending` identifies illustrated placeholders; `imageReference` identifies online photos whose exact match to the stock is not yet confirmed. The `variants` field defines available size options; confirm stock counts separately before launch. Keep IDs stable so saved bags remain valid.
 
-At the top of the configuration you can also change the brand, currency and shipping prices. The delivery form currently supports Australia; expand its fields if you intend to ship internationally. Product pricing is USD, with approximate AUD values shown alongside it. Shipping retains the original sample AUD 9 fee and AUD 150 free-delivery threshold; these are converted to USD for totals using the same dated rate. Confirm delivery fees before launch.
+At the top of the configuration you can also change the brand, currency and shipping prices. The delivery form currently supports Australia; expand its fields if you intend to ship internationally. User-supplied pricing is AUD and is converted to USD for the primary display. The original AUD values remain exact on product, bag and checkout displays. Shipping retains the original sample AUD 9 fee and AUD 150 free-delivery threshold; these are converted to USD for totals using the same dated rate. Confirm delivery fees before launch.
 
 ## What already works
 
@@ -89,29 +89,33 @@ The original Sass and legacy styles remain in the repository but are not used by
 
 ## Current catalogue and pricing
 
-The homepage headline is **Start your reselling journey.** The storefront uses black, white and neutral greys, with no green accents. All ten products appear on the homepage.
+The headline is **Start your reselling journey.** A compact black-and-white introduction brings the collection closer to the top of the page. There is no oversized Sp5der hero. All ten items appear on the homepage, with a five-column desktop grid and two-column mobile layout. The Sp5der item appears lower in the grid.
 
-| Product                               |     USD price |
-| ------------------------------------- | ------------: |
-| BAPE Big Ape Head T-shirt             |            15 |
-| Arc’teryx jacket                      |            70 |
-| Sp5der hoodie — pink / black          |            30 |
-| Neovision hoodie                      |            20 |
-| Blank hoodie                          |            15 |
-| The North Face puffer vest            |            25 |
-| The North Face puffer jacket          |            35 |
-| Ralph Lauren polo bundle — 3 T-shirts | 40 per bundle |
-| Essentials hoodie                     |  Not supplied |
-| Essentials T-shirt                    |  Not supplied |
+| Product                               | Original AUD |    Converted USD |
+| ------------------------------------- | -----------: | ---------------: |
+| BAPE Big Ape Head T-shirt             |        15.00 |            10.50 |
+| Arc’teryx jacket                      |        70.00 |            49.01 |
+| Sp5der hoodie — pink / black          |        30.00 |            21.00 |
+| Neovision hoodie                      |        20.00 |            14.00 |
+| Blank hoodie                          |        15.00 |            10.50 |
+| The North Face puffer vest            |        25.00 |            17.50 |
+| The North Face puffer jacket          |        35.00 |            24.50 |
+| Ralph Lauren polo bundle — 3 T-shirts |        40.00 | 28.00 per bundle |
+| Essentials hoodie                     |        30.00 |            21.00 |
+| Essentials T-shirt                    |        15.00 |            10.50 |
 
-Quantity 1 on the Ralph Lauren listing means one bundle of three T-shirts. Size selection applies to the bundle. No mixed-size composition has been specified.
+Every listing offers Small, Medium, Large and XL, as supplied by the user. Stock quantities have not been supplied. Quantity 1 on the Ralph Lauren listing means one bundle of three T-shirts. Size selection applies to the bundle; no mixed-size composition has been specified. Its reference photo depicts one example tee, with the bundle quantity shown separately.
 
-The USD→AUD conversion snapshot is **1 USD = 1.42838714 AUD**, dated **20 October 2026**, retrieved from the public currency-api dataset via jsDelivr. `exchangeRate`, `exchangeRateDate` and `exchangeRateSource` in the configuration store the snapshot. This is an indicative display conversion, not a live quote; calculations and future checkout sessions use USD. Changing the snapshot updates displayed estimates without altering the supplied USD prices.
+Source conversion: **1 AUD = 0.70009031 USD**, dated **20 October 2026**, retrieved from the public currency-api dataset via jsDelivr. `sourceToUsdRate`, `sourceExchangeRateDate` and each product's `audPrice` retain the source price list and rate. `price` is a rounded USD unit price; cart USD totals add those rounded unit prices so quantities remain arithmetically consistent. The original AUD subtotals are retained independently rather than reconstructed from rounded USD amounts. Final payment is planned in USD.
+
+`exchangeRate` remains the reverse USD→AUD snapshot for converted amounts without an original AUD value. Shipping retains the editable sample AUD 9 fee and AUD 150 free-delivery threshold, converted to USD for checkout. Confirm actual delivery terms before launch. No live payment backend exists.
 
 ## Current product photos
 
-Four official online reference photos are stored locally: BAPE Big Ape Head tee, Sp5der pink/black Legacy hoodie, Essentials black hoodie and Essentials black tee. Source URLs are recorded in `PRODUCT_PHOTOS.md` and on each product. These are labelled online reference images, not verified photos of the user's actual inventory.
+Nine online reference photos are stored locally: BAPE, Sp5der, both Essentials items, AS Colour plain black hoodie, Ralph Lauren men's black tee, both North Face black puffers and Arc’teryx Beta jacket. Source URLs are recorded in `PRODUCT_PHOTOS.md` and on product pages. These are labelled reference images, not verified photos of the actual stock.
 
-The other six items retain labelled illustrations. Exact Neovision branding/model and the other stock styles/colours remain unconfirmed. Some additional official image hosts are blocked by cloud network policy; the required domain additions are saved in the environment draft for review. Do not claim photos have been sourced or matched until downloaded and inspected.
+The Neovision hoodie remains the only illustration. The user identified it as an Australian brand, but the exact spelling/model has not been verified from available searches. Do not substitute another brand's hoodie. A product/brand link or label identification is needed to finish this image accurately.
 
-When sourcing photos, prefer clear front-on product images on a neutral background and match the exact model, graphic and colour. Record the source URL with each downloaded image. Do not substitute an arbitrary garment from the same brand as a confirmed stock photo.
+The user requested YouTube design references. YouTube/Google requests are blocked by the current cloud egress policy. Access requirements have been saved in the environment draft, but no videos have been watched or claimed as watched. Current layout improvements were made directly and verified with browser tests and screenshots.
+
+When sourcing photos, match the exact model, graphic and colour where possible. Record the source with each downloaded image and preserve its original content. Do not describe a representative image as a verified photo of the stock.

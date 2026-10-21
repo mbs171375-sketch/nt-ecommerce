@@ -2716,3 +2716,191 @@ dialog::backdrop {
   width: 45px;
   height: 45px;
 }
+/* A compact, image-free opening keeps the actual collection in view. */
+.reseller-intro {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 9%;
+  padding-top: 56px;
+  padding-bottom: 53px;
+  align-items: center;
+}
+.intro-copy > .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 8px;
+}
+.intro-copy h1 {
+  font-size: clamp(48px, 5.5vw, 88px);
+  line-height: 1.07;
+  letter-spacing: -0.065em;
+  margin: 23px 0 20px;
+}
+.intro-copy h1 > span {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+}
+.intro-copy > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.intro-copy > .button {
+  margin-top: 25px;
+  min-width: 210px;
+}
+.intro-note {
+  padding-left: 34px;
+  border-left: 1px solid var(--line);
+}
+.intro-count {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 76px;
+  letter-spacing: -0.07em;
+  font-family: var(--heading);
+  line-height: 1;
+  margin: 25px 0;
+}
+.intro-count > span {
+  font-family: var(--body);
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.7;
+  color: #c2c2c2;
+}
+.intro-note > p {
+  font-size: 10px;
+  color: var(--muted);
+  margin: 16px 0 20px;
+  line-height: 1.9;
+}
+.intro-note > .text-link {
+  font-size: 9px;
+}
+.brand-ribbon {
+  padding: 22px 5%;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-family: var(--heading);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #b0b0b0;
+}
+.collection {
+  padding-top: 45px;
+}
+.product-grid .product-card {
+  scroll-margin-top: 20px;
+}
+.product-image.has-photo img {
+  object-fit: contain;
+  background: #f5f5f5;
+}
+.product-image.has-photo {
+  background: #f5f5f5;
+}
+.bundle-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  background: #111;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 8px;
+  letter-spacing: 0.05em;
+}
+.intro-copy .status-dot {
+  background: #eee;
+}
+@media (max-width: 1000px) {
+  .reseller-intro {
+    gap: 5%;
+    grid-template-columns: 1.7fr 1fr;
+  }
+  .intro-copy h1 {
+    font-size: 57px;
+  }
+  .intro-note {
+    padding-left: 24px;
+  }
+  .intro-count {
+    font-size: 65px;
+  }
+}
+@media (max-width: 700px) {
+  .reseller-intro {
+    grid-template-columns: 1fr;
+    padding-top: 34px;
+    padding-bottom: 33px;
+  }
+  .intro-copy h1 {
+    font-size: clamp(40px, 10.9vw, 70px);
+    margin: 21px 0 18px;
+  }
+  .intro-copy > .eyebrow {
+    font-size: 7px;
+    letter-spacing: 0.12em;
+  }
+  .intro-copy > p {
+    font-size: 11px;
+    max-width: 320px;
+  }
+  .intro-copy > .button {
+    margin-top: 21px;
+    min-height: 45px;
+    min-width: 198px;
+  }
+  .intro-note {
+    display: none;
+  }
+  .brand-ribbon {
+    padding: 16px 6%;
+    gap: 15px 20px;
+    justify-content: start;
+    font-size: 8px;
+  }
+  .collection {
+    padding-top: 33px;
+  }
+  .collection .section-heading h2 {
+    font-size: 25px;
+  }
+  .bundle-tag {
+    font-size: 6px;
+    right: 9px;
+    top: 29px;
+    padding: 3px 5px;
+  }
+  .collection .product-grid {
+    margin-top: 22px;
+  }
+}
+@media (min-width: 1200px) {
+  #home-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 32px 18px;
+  }
+  #home-grid .product-meta h3 {
+    font-size: 11px;
+  }
+  #home-grid .product-image {
+    aspect-ratio: 0.85;
+  }
+  .reseller-intro {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .intro-copy h1 {
+    font-size: 72px;
+  }
+}
