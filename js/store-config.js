@@ -185,5 +185,24 @@ window.STORE = {
       optionLabel: "Size",
       variants: ["To be confirmed"],
     },
+    {
+      id: "arcteryx-jacket",
+      name: "Arc’teryx jacket",
+      category: "Outerwear",
+      brand: "Arc’teryx",
+      price: null,
+      image: "assets/products/jacket-placeholder.svg",
+      imagePending: true,
+      label: "Arc’teryx",
+      description:
+        "Arc’teryx jacket, part of the upcoming clothing drop. Exact model, colour, sizing and price will be confirmed before orders open.",
+      details: [
+        "Exact jacket model and product photo to be confirmed",
+        "Sizes and available quantities coming soon",
+        "Pricing will be confirmed before checkout opens",
+      ],
+      optionLabel: "Size",
+      variants: ["To be confirmed"],
+    },
   ],
 };

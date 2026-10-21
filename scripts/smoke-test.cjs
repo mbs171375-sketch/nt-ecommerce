@@ -47,7 +47,7 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       await page.locator("#sort").selectOption("name");
       assert.match(
         await page.locator(".product-card").first().textContent(),
-        /BAPE Big Ape Head/,
+        /Arc.teryx jacket/,
       );
       checks++;
       await page.locator("[data-search]").click();
