@@ -12,6 +12,13 @@ python3 -m http.server 8000 --bind 0.0.0.0
 
 The entry point is `index.html`. The collection, product details and checkout are `products.html`, `product.html?id=h01`, and `checkout.html`. Use any static host for the storefront; a server-side checkout endpoint is required when accepting payments.
 
+## Public hosting
+
+GitHub Pages is configured to publish the `main` branch from the repository root.
+The deployment address is https://mbs171375-sketch.github.io/nt-ecommerce/.
+Updates pushed to `main` trigger deployment; allow the Pages build to complete before checking the public site.
+The `.nojekyll` file keeps the storefront as static files without a Jekyll build.
+
 ## Your product information
 
 Edit **`js/store-config.js`**. Each product has a `name`, `image`, `price`, category, description, details and finishes. Put your photos in **`assets/products/`** and set each `image` to its relative path. Use square photos (ideally 1200 × 1200) with breathing room around the object. Product names and images are reused automatically throughout the collection, product pages, search, bag and checkout. The first product is featured in the hero; the second illustrates the approach section.
