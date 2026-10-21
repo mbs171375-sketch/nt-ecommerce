@@ -39,6 +39,21 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
         );
         checks++;
       }
+      await page.goto(`${base}/index.html`);
+      assert.equal(await page.locator("#home-grid .product-card").count(), 10);
+      checks++;
+      assert.match(
+        await page.locator("h1").textContent(),
+        /Start yourresellingjourney/,
+      );
+      checks++;
+      const theme = await page.evaluate(() =>
+        getComputedStyle(document.documentElement)
+          .getPropertyValue("--accent")
+          .trim(),
+      );
+      assert.equal(theme, "#f1f1f1");
+      checks++;
       await page.goto(`${base}/products.html`);
       await page.locator('[data-category="Hoodies"]').click();
       assert.equal(await page.locator(".product-card").count(), 4);
@@ -55,6 +70,23 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       assert.equal(await page.locator(".search-result").count(), 1);
       checks++;
       await page.locator(".search-result").click();
+      assert.match(
+        await page.locator(".detail-price").textContent(),
+        /USD\s*15\.00/,
+      );
+      checks++;
+      assert.match(
+        await page.locator(".detail-price").textContent(),
+        /AUD\s*21\.43/,
+      );
+      checks++;
+      assert.deepEqual(
+        await page
+          .locator('[name="variant"]')
+          .evaluateAll((es) => es.map((e) => e.value)),
+        ["Small", "Medium", "Large", "XL"],
+      );
+      checks++;
       await page.locator("#product-quantity").fill("1000");
       await page.locator("#product-quantity").dispatchEvent("change");
       assert.equal(await page.locator("#product-quantity").inputValue(), "99");
@@ -65,22 +97,14 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       checks++;
       await page.locator("#product-quantity").fill("2");
       await page.locator("#product-quantity").dispatchEvent("change");
-      await page
-        .locator(".variant")
-        .filter({ hasText: "To be confirmed" })
-        .click();
+      await page.locator(".variant").filter({ hasText: "Medium" }).click();
       assert.equal(
-        await page
-          .locator('input[name="variant"][value="To be confirmed"]')
-          .isChecked(),
+        await page.locator('input[name="variant"][value="Medium"]').isChecked(),
         true,
       );
       checks++;
       await page.locator("#add-bag").click();
-      assert.match(
-        await page.locator("#bag-content").textContent(),
-        /To be confirmed/,
-      );
+      assert.match(await page.locator("#bag-content").textContent(), /Medium/);
       checks++;
       await page.reload();
       await page.locator("[data-bag]").click();
@@ -106,7 +130,7 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       assert.equal(await page.locator("#pay-button").isDisabled(), true);
       assert.match(
         await page.locator(".summary-costs .total").textContent(),
-        /To be confirmed/,
+        /USD\s*51\.30/,
       );
       checks++;
       assert.match(
@@ -137,6 +161,25 @@ const base = process.env.STORE_TEST_URL || "http://127.0.0.1:8000";
       assert.match(
         await page.locator("main").textContent(),
         /Product not found/,
+      );
+      checks++;
+      await page.goto(`${base}/product.html?id=ralph-lauren-bundle`);
+      assert.match(
+        await page.locator(".detail-description").textContent(),
+        /3 Ralph Lauren T-shirts for USD 40/,
+      );
+      checks++;
+      await page.locator("#quantity-plus").click();
+      assert.match(
+        await page.locator("#add-total").textContent(),
+        /USD\s*80\.00/,
+      );
+      checks++;
+      await page.goto(`${base}/product.html?id=essentials-hoodie`);
+      await page.locator("#buy-now").click();
+      assert.match(
+        await page.locator(".summary-costs .total").textContent(),
+        /Price coming soon/,
       );
       checks++;
       assert.deepEqual(errors, []);
