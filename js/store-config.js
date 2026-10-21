@@ -1,4 +1,5 @@
-/* Product catalogue. Prices are integer cents, or null until confirmed.
+/* Product catalogue. audPrice contains the original AUD cents supplied by the user.
+   price contains the USD unit amount converted and rounded at sourceToUsdRate.
    Replace placeholder images with verified photos of the exact style/colour.
    Set imagePending to false after adding a matching image. Keep IDs stable.
    Replace variants with actual available sizes; never guess stock availability.
@@ -214,7 +215,7 @@ window.STORE = {
     },
     {
       id: "neovision-hoodie",
-      name: "Neovision hoodie",
+      name: "Neovision Cosmic Widecut hoodie — black",
       category: "Hoodies",
       brand: "Neovision",
       price: 1400,
@@ -222,14 +223,16 @@ window.STORE = {
       imagePending: true,
       label: "Neovision",
       description:
-        "Neovision hoodie, part of the upcoming clothing drop. Exact style, colour and stock quantities will be confirmed before orders open.",
+        "Neovision Cosmic Widecut hoodie in black. Choose Small, Medium, Large or XL. Stock quantities will be confirmed before orders open.",
       details: [
-        "Product photo and exact style to be confirmed",
+        "Cosmic Widecut hoodie in black — photo from Universal Store pending access",
         "Sizes: Small, Medium, Large and XL",
       ],
       optionLabel: "Size",
       variants: ["Small", "Medium", "Large", "XL"],
       audPrice: 2000,
+      productSource:
+        "https://www.universalstore.com/products/neovision-cosmic-widecut-hoodie-black",
     },
   ],
   displayCurrency: "AUD",

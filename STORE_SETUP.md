@@ -114,7 +114,7 @@ Source conversion: **1 AUD = 0.70009031 USD**, dated **20 October 2026**, retrie
 
 Nine online reference photos are stored locally: BAPE, Sp5der, both Essentials items, AS Colour plain black hoodie, Ralph Lauren men's black tee, both North Face black puffers and Arc’teryx Beta jacket. Source URLs are recorded in `PRODUCT_PHOTOS.md` and on product pages. These are labelled reference images, not verified photos of the actual stock.
 
-The Neovision hoodie remains the only illustration. The user identified it as an Australian brand, but the exact spelling/model has not been verified from available searches. Do not substitute another brand's hoodie. A product/brand link or label identification is needed to finish this image accurately.
+The Neovision hoodie remains the only illustration. The user’s Google link resolved to the Neovision Cosmic Widecut Hoodie Black at https://www.universalstore.com/products/neovision-cosmic-widecut-hoodie-black. Brand/model identification is complete; fetching the final product image is currently blocked by the environment egress policy for www.universalstore.com. This hostname is saved in the network draft for review. No further brand link is needed; retry the real product page after the settings apply. Do not substitute another brand’s hoodie.
 
 The user requested YouTube design references. YouTube/Google requests are blocked by the current cloud egress policy. Access requirements have been saved in the environment draft, but no videos have been watched or claimed as watched. Current layout improvements were made directly and verified with browser tests and screenshots.
 
