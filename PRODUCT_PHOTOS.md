@@ -1,6 +1,6 @@
 # Online reference photography
 
-Retrieved 21 October 2026 from the official brand storefronts below. Originals are retained locally without image manipulation. The product pages label these as reference photos because the stock's exact model and colour have not been independently confirmed.
+Retrieved 21 October 2026 from the brand and retailer storefronts below. Originals are retained locally without image manipulation. The product pages label these as reference photos because the stock's exact model and colour have not been independently confirmed.
 
 | Local file                              | Online source                                                                                                     | Reference style                                                                                               |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -13,7 +13,8 @@ Retrieved 21 October 2026 from the official brand storefronts below. Originals a
 | `assets/products/north-face-jacket.jpg` | https://www.thenorthface.com/en-us/p/mens-1996-retro-nuptse-jacket-NF0A3C8D?color=GOE                             | Men's 1996 Retro Nuptse Jacket, TNF Black                                                                     |
 | `assets/products/north-face-vest.jpg`   | https://www.thenorthface.com/en-us/p/mens-1996-retro-nuptse-vest-NF0A3JQQ?color=GOF                               | Men's 1996 Retro Nuptse Vest, TNF Black / Recycled Down                                                       |
 | `assets/products/arcteryx-jacket.jpg`   | https://arcteryx.com/us/en/shop/mens/beta-jacket                                                                  | Beta Jacket in black; the reference photo is from the official F24 image catalogue                            |
+| `assets/products/neovision-cosmic-black.jpg` | https://www.universalstore.com/products/neovision-cosmic-widecut-hoodie-black | Neovision Cosmic Urban Hoodie Black, front view from Universal Store |
 
-One photograph remains pending: the **Neovision Cosmic Widecut Hoodie Black**, identified from the user’s link: https://www.universalstore.com/products/neovision-cosmic-widecut-hoodie-black. The link identification succeeded, but the product HTML and JSON requests are blocked by the environment egress policy. Both universalstore.com and www.universalstore.com are saved in the network draft for review. Retry the exact page after settings apply. The existing listing remains a labelled illustration; no further product identification is needed.
+All ten products now have locally stored online reference photographs. The Neovision product was identified from the user’s Google ad link. Its URL retains “cosmic-widecut”, but the current retailer product data names it **Neovision Cosmic Urban Hoodie Black**. The selected photograph shows the front of the black hoodie.
 
 The BAPE image was identified through its official product search. The Sp5der image was found in the official archived catalogue, and the Essentials photos through the official product catalogue. Product pricing on those source sites is separate from the prices supplied for this store.

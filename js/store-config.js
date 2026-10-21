@@ -215,17 +215,19 @@ window.STORE = {
     },
     {
       id: "neovision-hoodie",
-      name: "Neovision Cosmic Widecut hoodie — black",
+      name: "Neovision Cosmic Urban hoodie — black",
       category: "Hoodies",
       brand: "Neovision",
       price: 1400,
-      image: "assets/products/hoodie-placeholder.svg",
-      imagePending: true,
+      image: "assets/products/neovision-cosmic-black.jpg",
+      imageReference: true,
+      imageSource:
+        "https://www.universalstore.com/products/neovision-cosmic-widecut-hoodie-black",
       label: "Neovision",
       description:
-        "Neovision Cosmic Widecut hoodie in black. Choose Small, Medium, Large or XL. Stock quantities will be confirmed before orders open.",
+        "Neovision Cosmic Urban hoodie in black. Choose Small, Medium, Large or XL. Stock quantities will be confirmed before orders open.",
       details: [
-        "Cosmic Widecut hoodie in black — photo from Universal Store pending access",
+        "Cosmic Urban hoodie in black — Universal Store reference photo",
         "Sizes: Small, Medium, Large and XL",
       ],
       optionLabel: "Size",
